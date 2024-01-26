@@ -11,7 +11,7 @@ function App() {
       <GlobalStyles />
       <Routes>
         <Route path="/" element={<Header />}>
-          {/* <Route index element={<Home />}></Route> */}
+          <Route index element={<Home />}></Route>
         </Route>
       </Routes>
     </Fragment>
