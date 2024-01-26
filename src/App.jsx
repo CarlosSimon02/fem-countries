@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
+import Header from "./components/header/header.component";
+
 function App() {
   const [countries, setCountries] = useState([]);
-  useEffect()
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((response) => {
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <div>
+      <Header/>
       <input type="search" />
       <div>
         {countries.map((country,index) => {

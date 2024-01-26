@@ -1,7 +1,7 @@
-import {} from "./header.styles";
+import {HeaderContainer} from "./header.styles";
 
 const Header = () => {
-  return <div></div>;
+  return <HeaderContainer>This is a fucking header</HeaderContainer>;
 };
 
 export default Header;
