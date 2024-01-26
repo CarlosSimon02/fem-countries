@@ -1,7 +1,14 @@
-import {HeaderContainer} from "./header.styles";
+import LayoutWrapper from "../layout-wrapper/layout-wrapper.component";
+
+import { HeaderContainer } from "./header.styles";
 
 const Header = () => {
-  return <HeaderContainer>This is a fucking header</HeaderContainer>;
+  return (
+    <HeaderContainer>
+      <div>Fuck</div>
+      <LayoutWrapper><h2>Hello</h2></LayoutWrapper>
+    </HeaderContainer>
+  );
 };
 
 export default Header;
