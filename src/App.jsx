@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/header/header.component";
 
@@ -20,6 +21,11 @@ function App() {
   return (
     <div>
       <GlobalStyles />
+      <Routes>
+        <Route path="/" element={<Header />} >
+          <Route index element={<Home />}
+        </Route>
+      </Routes>
       <Header />
       <input type="search" />
       <div>
