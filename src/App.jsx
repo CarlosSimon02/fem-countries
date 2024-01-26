@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Fragment } from "react";
 import { GlobalStyles } from "./global.styles";
 
-import Header from "./components/header/header.component";
+import Header from "./routes/header/header.route";
 import Home from "./routes/home/home.route";
 
 function App() {

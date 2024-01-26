@@ -1,3 +1,5 @@
+import { rem } from "polished";
+
 const colors = {
   primary: {
     main: "hsl(0,0%,100%)",
@@ -5,6 +7,9 @@ const colors = {
   },
   secondary: {
     main: "hsl(200, 15%, 7.8431372549019605%)",
+  },
+  shadow: {
+    main: `0 ${rem("2px")} ${rem("4px")} 0 hsl(0,0%,0%,5.62%)`,
   },
 };
 

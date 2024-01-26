@@ -4,11 +4,12 @@ import { rem } from "polished";
 import colors from "../../styles/colors";
 import LayoutWrapper from "../../styles/common/layout-wrapper";
 
-const { primary } = colors;
+const { primary, shadow } = colors;
 
 export const HeaderContainer = styled.header`
   background-color: ${primary.main};
   height: ${rem("80px")};
+  box-shadow: ${shadow.main};
 `;
 
 export const Wrapper = styled(LayoutWrapper)`
