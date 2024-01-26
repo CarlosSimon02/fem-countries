@@ -1,12 +1,12 @@
-import LayoutWrapper from "../layout-wrapper/layout-wrapper.component";
-
-import { HeaderContainer } from "./header.styles";
+import { HeaderContainer, Wrapper } from "./header.styles";
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <div>Fuck</div>
-      <LayoutWrapper><h2>Hello</h2></LayoutWrapper>
+      <Wrapper>
+        <h2>Where in the world?</h2>
+        <button>Dark Mode</button>
+      </Wrapper>
     </HeaderContainer>
   );
 };
