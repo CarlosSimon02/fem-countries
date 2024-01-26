@@ -17,3 +17,7 @@ export const Wrapper = styled(LayoutWrapper)`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const Title = styled.h1`
+  font-size: clamp(0.875rem, 2.353vw + 0.324rem, 1.5rem);
+`;

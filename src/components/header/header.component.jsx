@@ -1,13 +1,15 @@
-import { HeaderContainer, Wrapper } from "./header.styles";
+import { HeaderContainer, Wrapper, Title } from "./header.styles";
 import { Fragment } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <Fragment>
       <HeaderContainer>
         <Wrapper>
-          <h2>Where in the world?</h2>
+          <Link to="/">
+            <Title>Where in the world?</Title>
+          </Link>
           <button>Dark Mode</button>
         </Wrapper>
       </HeaderContainer>
