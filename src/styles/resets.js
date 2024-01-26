@@ -39,4 +39,9 @@ export const resets = css`
   h6 {
     overflow-wrap: break-word;
   }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
