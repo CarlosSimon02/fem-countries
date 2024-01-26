@@ -2,6 +2,8 @@ import { HeaderContainer, Wrapper, Title } from "./header.styles";
 import { Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
 
+import ThemeSwitcher from "../theme-switcher/theme-switcher.component";
+
 const Header = () => {
   return (
     <Fragment>
@@ -10,7 +12,7 @@ const Header = () => {
           <Link to="/">
             <Title>Where in the world?</Title>
           </Link>
-          <button>Dark Mode</button>
+          <ThemeSwitcher />
         </Wrapper>
       </HeaderContainer>
       <Outlet />

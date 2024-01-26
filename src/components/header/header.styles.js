@@ -19,5 +19,6 @@ export const Wrapper = styled(LayoutWrapper)`
 `;
 
 export const Title = styled.h1`
+  font-weight: 800;
   font-size: clamp(0.875rem, 2.353vw + 0.324rem, 1.5rem);
 `;
