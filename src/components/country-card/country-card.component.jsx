@@ -1,4 +1,4 @@
-import {} from "./country-card.styles";
+import { CountryCardContainer, DetailsContainer } from "./country-card.styles";
 
 const CountryCard = ({ country }) => {
   console.log(country);
@@ -11,13 +11,15 @@ const CountryCard = ({ country }) => {
   } = country;
 
   return (
-    <div>
+    <CountryCardContainer>
       <img src={image} alt={imageAlt} />
-      <p>{name}</p>
-      <p>{population}</p>
-      <p>{region}</p>
-      <p>{capital ? capital[0] : "No Capital"}</p>
-    </div>
+      <DetailsContainer>
+        <h1>{name}</h1>
+        <p>{population}</p>
+        <p>{region}</p>
+        <p>{capital ? capital[0] : "No Capital"}</p>
+      </DetailsContainer>
+    </CountryCardContainer>
   );
 };
 
