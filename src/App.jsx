@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import Header from "./components/header/header.component";
 
+import { GlobalStyles } from "./global.styles";
+
 function App() {
   const [countries, setCountries] = useState([]);
   useEffect(() => {
@@ -17,10 +19,11 @@ function App() {
 
   return (
     <div>
-      <Header/>
+      <GlobalStyles />
+      <Header />
       <input type="search" />
       <div>
-        {countries.map((country,index) => {
+        {countries.map((country, index) => {
           return (
             <div key={country.cca3}>
               <h1>{country.name.common}</h1>
