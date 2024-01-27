@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import LayoutWrapper from "../../styles/common/layout-wrapper";
 import Countries from "../../components/countries/countries.component";
+import { SearchAndFilterContainer } from "./home.styles";
+import SearchBar from "../../components/search-bar/search-bar.component";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -19,16 +21,18 @@ const Home = () => {
 
   const onSearchChangeHandler = (event) => {
     const value = event.target.value.toLowerCase();
-    const searchedCountries = countries.filter(({name})=> {
+    const searchedCountries = countries.filter(({ name }) => {
       return name.common.toLowerCase().includes(value);
     });
     setFilteredCountries(searchedCountries);
-  } 
+  };
 
   return (
     <LayoutWrapper>
-      <input type="search" onChange={onSearchChangeHandler}/>
-      <Countries countries={filteredCountries}/>
+      <SearchAndFilterContainer>
+        <SearchBar onChange={onSearchChangeHandler}/>
+      </SearchAndFilterContainer>
+      <Countries countries={filteredCountries} />
     </LayoutWrapper>
   );
 };

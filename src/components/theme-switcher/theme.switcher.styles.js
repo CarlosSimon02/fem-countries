@@ -11,6 +11,7 @@ export const Button = styled.button`
   background-color: transparent;
   border-style: none;
   display: flex;
+  font-size: clamp(0.75rem, 0.941vw + 0.529rem, 1rem);
   gap: ${rem("8px")};
 
   p {
@@ -19,8 +20,8 @@ export const Button = styled.button`
 `;
 
 export const Moon = styled(MoonSVG)`
-  width: ${rem("20px")};
-  height: ${rem("20px")};
+  width: clamp(1rem, 0.941vw + 0.779rem, 1.25rem);
+  height: clamp(1rem, 0.941vw + 0.779rem, 1.25rem);
 
   path {
     fill: ${secondary.main};
