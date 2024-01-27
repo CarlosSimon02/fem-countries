@@ -1,39 +1,51 @@
 import styled from "styled-components";
 import { rem } from "polished";
 import colors from "../../styles/colors";
-import { ReactComponent as DownArrowSVG } from "../../assets/down-arrow.svg";
+import Select from "react-select";
 
-const { primary, shadow } = colors;
+const { primary, secondary, shadow, option } = colors;
 
-export const SelectRegionContainer = styled.div`
-  height: clamp(3rem, 1.882vw + 2.559rem, 3.5rem);
-  width: 100%;
-  max-width: ${rem("200px")};
-  position: relative;
+export const SelectRegion = styled(Select)`
+  .select__control {
+    height: clamp(3rem, 1.882vw + 2.559rem, 3.5rem);
+    width: ${rem("200px")};
+    position: relative;
+    border: none;
+    border-radius: ${rem("5px")};
+    background-color: ${primary.main};
+    box-shadow: ${shadow.input};
+    padding-right: ${rem("14px")};
+    padding-left: ${rem("24px")};
+    font-size: clamp(0.75rem, 0.471vw + 0.64rem, 0.875rem);
+    cursor: pointer;
+  }
+
+  .select__menu {
+    border: none;
+    border-radius: ${rem("5px")};
+    box-shadow: ${shadow.input};
+    padding-block: ${rem("8px")};
+  }
+
+  .select__option {
+    padding: ${rem("8px")} ${rem("24px")};
+    cursor: pointer;
+  }
+
+  .select__option--is-selected,
+  .select__option--is-focused {
+    background-color: ${option.bg};
+  }
+
+  .select__value-container {
+    padding-left: 0;
+  }
+
+  .select__indicator-separator {
+    display: none;
+  }
+
+  .select__placeholder {
+    color: ${secondary.main};
+  }
 `;
-
-export const SelectRegion = styled.select`
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: ${rem("5px")};
-  background-color: ${primary.main};
-  box-shadow: ${shadow.input};
-  padding: ${rem("14px")};
-  padding-left: ${rem("24px")};
-  font-size: clamp(0.75rem, 0.471vw + 0.64rem, 0.875rem);
-  appearance: none;
-  /* safari */
-  -webkit-appearance: none;
-  /* other styles for aesthetics */
-`;
-
-export const DownArrowIcon = styled(DownArrowSVG)`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: ${rem("19px")};
-  width: ${rem("20px")};
-  height: ${rem("20px")};
-`

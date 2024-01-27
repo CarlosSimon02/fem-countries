@@ -1,7 +1,6 @@
 import { CountryCardContainer, DetailsContainer } from "./country-card.styles";
 
 const CountryCard = ({ country }) => {
-  console.log(country);
   const {
     flags: { png: image, alt: imageAlt },
     name: { common: name },

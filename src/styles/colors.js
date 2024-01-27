@@ -15,6 +15,9 @@ const colors = {
     card: `0 0 ${rem("7px")} ${rem("2px")} hsl(0,0%,0%,2.94%)`,
     input: `0 0 ${rem("9px")} ${rem("2px")} hsl(0,0%,0%,2.94%)`,
   },
+  option: {
+    bg: "hsl(0, 0%, 95%)",
+  },
 };
 
 export default colors;

@@ -1,21 +1,25 @@
-import {
-  SelectRegion,
-  SelectRegionContainer,
-  DownArrowIcon
-} from "./region-filter-bar.styles";
+import { SelectRegion } from "./region-filter-bar.styles";
 
-const RegionFilterBar = () => {
+const regions = [
+  { value: "africa", label: "Africa" },
+  { value: "americas", label: "Americas" },
+  { value: "antarctic", label: "Antarctic" },
+  { value: "asia", label: "Asia" },
+  { value: "europe", label: "Europe" },
+  { value: "oceania", label: "Oceania" },
+];
+
+const RegionFilterBar = ({ onChange }) => {
   return (
-    <SelectRegionContainer>
-      <SelectRegion>
-        <option value="aftica">Africa</option>
-        <option value="ameri">America</option>
-        <option value="option3">Asia</option>
-        <option value="option3">Europe</option>
-        <option value="option3">Oceana</option>
-      </SelectRegion>
-      <DownArrowIcon/>
-    </SelectRegionContainer>
+    <SelectRegion
+      options={regions}
+      isClearable={true}
+      isSearchable={false}
+      name="regions"
+      classNamePrefix="select"
+      placeholder="Filter by Region"
+      onChange={onChange}
+    />
   );
 };
 

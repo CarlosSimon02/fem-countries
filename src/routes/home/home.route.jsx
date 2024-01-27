@@ -28,11 +28,20 @@ const Home = () => {
     setFilteredCountries(searchedCountries);
   };
 
+  const onRegionFilterChangeHandler = (selected) => {
+    if (selected) {
+      const searchedCountries = countries.filter(({ region }) => {
+        return region.toLowerCase() === selected.value;
+      });
+      setFilteredCountries(searchedCountries);
+    } else setFilteredCountries(countries);
+  };
+
   return (
     <LayoutWrapper>
       <SearchAndFilterContainer>
         <SearchBar onChange={onSearchChangeHandler} />
-        <RegionFilterBar/>
+        <RegionFilterBar onChange={onRegionFilterChangeHandler} />
       </SearchAndFilterContainer>
       <Countries countries={filteredCountries} />
     </LayoutWrapper>
