@@ -11,6 +11,7 @@ export const SearchBarContainer = styled.div`
   max-width: ${rem("480px")};
   position: relative;
 `
+
 export const SearchIcon = styled(SearchSVG)`
   width: clamp(1rem, 0.471vw + 0.89rem, 1.125rem);
   height: clamp(1rem, 0.471vw + 0.89rem, 1.125rem);
@@ -19,6 +20,7 @@ export const SearchIcon = styled(SearchSVG)`
   transform: translateY(-50%);
   display: inline;
   position: absolute;
+  pointer-events: none;
 
   path {
     fill: ${secondary.placeholderIcon};

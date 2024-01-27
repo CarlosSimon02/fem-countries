@@ -1,14 +1,21 @@
-import {SelectRegion} from "./region-filter-bar.styles";
+import {
+  SelectRegion,
+  SelectRegionContainer,
+  DownArrowIcon
+} from "./region-filter-bar.styles";
 
 const RegionFilterBar = () => {
   return (
-    <SelectRegion>
-      <option value="option1">Africa</option>
-      <option value="option2">America</option>
-      <option value="option3">Asia</option>
-      <option value="option3">Europe</option>
-      <option value="option3">Oceana</option>
-    </SelectRegion>
+    <SelectRegionContainer>
+      <SelectRegion>
+        <option value="aftica">Africa</option>
+        <option value="ameri">America</option>
+        <option value="option3">Asia</option>
+        <option value="option3">Europe</option>
+        <option value="option3">Oceana</option>
+      </SelectRegion>
+      <DownArrowIcon/>
+    </SelectRegionContainer>
   );
 };
 
