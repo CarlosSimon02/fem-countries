@@ -3,6 +3,7 @@ import LayoutWrapper from "../../styles/common/layout-wrapper";
 import Countries from "../../components/countries/countries.component";
 import { SearchAndFilterContainer } from "./home.styles";
 import SearchBar from "../../components/search-bar/search-bar.component";
+import RegionFilterBar from "../../components/region-filter-bar/region-filter-bar.component";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -30,7 +31,8 @@ const Home = () => {
   return (
     <LayoutWrapper>
       <SearchAndFilterContainer>
-        <SearchBar onChange={onSearchChangeHandler}/>
+        <SearchBar onChange={onSearchChangeHandler} />
+        <RegionFilterBar/>
       </SearchAndFilterContainer>
       <Countries countries={filteredCountries} />
     </LayoutWrapper>

@@ -5,6 +5,7 @@ import colors from "../../styles/colors";
 const { primary, shadow } = colors;
 
 export const CountryCardContainer = styled.div`
+  cursor: pointer;
   width: ${rem("264px")};
   height: ${rem("336px")};
   background-color: ${primary.main};
