@@ -1,5 +1,4 @@
-import { useEffect, useState, useContext } from "react";
-import { CountriesContext } from "../../contexts/countries.context";
+import { useEffect, useState } from "react";
 import LayoutWrapper from "../../styles/common/layout-wrapper";
 import Countries from "../../components/countries/countries.component";
 import { SearchAndFilterContainer } from "./home.styles";
@@ -10,23 +9,30 @@ const Home = () => {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [regionFilterValue, setRegionFilterValue] = useState("");
-  const { countries } = useContext(CountriesContext);
+  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    setFilteredCountries(countries);
-  }, [countries]);
+    fetch("https://restcountries.com/v3.1/all?fields=name,capital,currencies")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setCountries(data);
+        setFilteredCountries(data);
+      });
+  }, []);
 
   useEffect(() => {
-    const newFilteredCountries = countries.filter(({ name, region }) => {
-      const nameHasSearchValue = name.common
-        .toLowerCase()
-        .includes(searchValue);
-      const countryIsInFilteredRegion = regionFilterValue
-        ? region.toLowerCase() === regionFilterValue
-        : true;
+    const newFilteredCountries = countries.filter(
+      ({ name: { common: name }, region }) => {
+        const nameHasSearchValue = name.toLowerCase().includes(searchValue);
+        const countryIsInFilteredRegion = regionFilterValue
+          ? region.toLowerCase() === regionFilterValue
+          : true;
 
-      return nameHasSearchValue && countryIsInFilteredRegion;
-    });
+        return nameHasSearchValue && countryIsInFilteredRegion;
+      }
+    );
     setFilteredCountries(newFilteredCountries);
   }, [countries, searchValue, regionFilterValue]);
 

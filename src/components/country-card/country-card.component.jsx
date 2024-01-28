@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
   const {
+    cca3,
     flags: { png: image, alt: imageAlt },
     name: { common: name },
     population,
@@ -11,9 +12,8 @@ const CountryCard = ({ country }) => {
   } = country;
 
   const navigate = useNavigate();
-  const onNavigateHandler = () => {
-    const route = name.toLowerCase().replace(/ /g, "-");
-    navigate(route);
+  const onNavigateHandler = () => {;
+    navigate(cca3.toLowerCase());
   };
 
   return (

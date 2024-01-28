@@ -4,17 +4,16 @@ import { CountriesContext } from "../../contexts/countries.context";
 
 const Country = () => {
   const { countries } = useContext(CountriesContext);
-  const { country } = useParams();
+  const { id } = useParams();
   const [currentCountry, setCurrentCountry] = useState(null);
 
   useEffect(() => {
-    const foundCountry = countries.find(({ name }) => {
-      const formattedName = name.common.toLowerCase().replace(/ /g, "-");
-      return formattedName === country;
+    const foundCountry = countries.find(({ cca3 }) => {
+      return cca3.toLowerCase() === id;
     });
 
     setCurrentCountry(foundCountry || null);
-  }, [countries, country]);
+  }, [countries, id]);
 
   if (!currentCountry) {
     return <div>Loading</div>;
@@ -36,16 +35,23 @@ const Country = () => {
     borders,
   } = currentCountry;
 
-  return <div>
-    <img src={image} alt={imageAlt} />
+  return (
     <div>
-      <p>{name}</p>
-      <p>{area}</p>
-      <p>{population}</p>
-      <p>{region}</p>
-      <p>{subregion}</p>
+      <img src={image} alt={imageAlt} />
+      <div>
+        <p>{name}</p>
+        <p>{area}</p>
+        <p>{population}</p>
+        <p>{region}</p>
+        <p>{subregion}</p>
+        <p>{topLevelDomain}</p>
+        <p>{capital.join(", ")}</p>
+        <p>{Object.keys(currencies).map((key) => currencies[key].name)}</p>
+        <p>{Object.keys(languages).map((key) => languages[key])}</p>
+        <p>{borders && borders.join(", ")}</p>
+      </div>
     </div>
-  </div>;
+  );
 };
 
 export default Country;
