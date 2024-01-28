@@ -1,4 +1,5 @@
 import { CountryCardContainer, DetailsContainer } from "./country-card.styles";
+import { useNavigate } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
   const {
@@ -9,8 +10,14 @@ const CountryCard = ({ country }) => {
     capital,
   } = country;
 
+  const navigate = useNavigate();
+  const onNavigateHandler = () => {
+    const route = name.toLowerCase().replace(/ /g, "-");
+    navigate(route);
+  };
+
   return (
-    <CountryCardContainer>
+    <CountryCardContainer onClick={onNavigateHandler}>
       <img src={image} alt={imageAlt} />
       <DetailsContainer>
         <h1 className="country">{name}</h1>

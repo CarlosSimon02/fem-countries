@@ -10,6 +10,9 @@ export const HeaderContainer = styled.header`
   background-color: ${primary.main};
   height: ${rem("80px")};
   box-shadow: ${shadow.main};
+  position: sticky;
+  top: 0;
+  z-index: 2;
 `;
 
 export const Wrapper = styled(LayoutWrapper)`
