@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { CountriesContext } from "../../contexts/countries.context";
 import LayoutWrapper from "../../styles/common/layout-wrapper";
 import Countries from "../../components/countries/countries.component";
 import { SearchAndFilterContainer } from "./home.styles";
@@ -6,21 +7,14 @@ import SearchBar from "../../components/search-bar/search-bar.component";
 import RegionFilterBar from "../../components/region-filter-bar/region-filter-bar.component";
 
 const Home = () => {
-  const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [regionFilterValue, setRegionFilterValue] = useState("");
+  const { countries } = useContext(CountriesContext);
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((response) => {
-        return response.json();
-      })
-      .then((countries) => {
-        setCountries(countries);
-        setFilteredCountries(countries);
-      });
-  }, []);
+    setFilteredCountries(countries);
+  }, [countries]);
 
   useEffect(() => {
     const newFilteredCountries = countries.filter(({ name, region }) => {
