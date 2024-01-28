@@ -12,7 +12,9 @@ const Home = () => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all?fields=name,capital,currencies")
+    fetch(
+      "https://restcountries.com/v3.1/all?fields=cca3,flags,name,population,region,capital"
+    )
       .then((response) => {
         return response.json();
       })
