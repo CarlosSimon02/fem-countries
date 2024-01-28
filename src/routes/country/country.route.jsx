@@ -1,25 +1,25 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { CountriesContext } from "../../contexts/countries.context";
 
 const Country = () => {
-  const { countries } = useContext(CountriesContext);
   const { id } = useParams();
-  const [currentCountry, setCurrentCountry] = useState(null);
+  const [country, setCountry] = useState(null);
 
   useEffect(() => {
-    const foundCountry = countries.find(({ cca3 }) => {
-      return cca3.toLowerCase() === id;
-    });
+    fetch(`https://restcountries.com/v3.1/alpha/${id.toUpperCase()}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setCountry(data);
+      });
+  }, [id]);
 
-    setCurrentCountry(foundCountry || null);
-  }, [countries, id]);
-
-  if (!currentCountry) {
+  if (!country) {
     return <div>Loading</div>;
   }
 
-  console.log(currentCountry);
+  console.log(country);
 
   const {
     flags: { png: image, alt: imageAlt },
@@ -33,7 +33,7 @@ const Country = () => {
     currencies,
     languages,
     borders,
-  } = currentCountry;
+  } = country;
 
   return (
     <div>
