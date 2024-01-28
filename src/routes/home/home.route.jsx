@@ -8,6 +8,8 @@ import RegionFilterBar from "../../components/region-filter-bar/region-filter-ba
 const Home = () => {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const [regionFilterValue, setRegionFilterValue] = useState("");
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -20,21 +22,28 @@ const Home = () => {
       });
   }, []);
 
+  useEffect(() => {
+    const newFilteredCountries = countries.filter(({ name, region }) => {
+      const nameHasSearchValue = name.common
+        .toLowerCase()
+        .includes(searchValue);
+      const countryIsInFilteredRegion = regionFilterValue
+        ? region.toLowerCase() === regionFilterValue
+        : true;
+
+      return nameHasSearchValue && countryIsInFilteredRegion;
+    });
+    setFilteredCountries(newFilteredCountries);
+  }, [countries, searchValue, regionFilterValue]);
+
   const onSearchChangeHandler = (event) => {
     const value = event.target.value.toLowerCase();
-    const searchedCountries = countries.filter(({ name }) => {
-      return name.common.toLowerCase().includes(value);
-    });
-    setFilteredCountries(searchedCountries);
+    setSearchValue(value);
   };
 
   const onRegionFilterChangeHandler = (selected) => {
-    if (selected) {
-      const searchedCountries = countries.filter(({ region }) => {
-        return region.toLowerCase() === selected.value;
-      });
-      setFilteredCountries(searchedCountries);
-    } else setFilteredCountries(countries);
+    const value = selected ? selected.value : "";
+    setRegionFilterValue(value);
   };
 
   return (
