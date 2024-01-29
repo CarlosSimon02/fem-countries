@@ -5,6 +5,7 @@ import { SearchAndFilterContainer } from "./home.styles";
 import SearchBar from "../../components/search-bar/search-bar.component";
 import RegionFilterBar from "../../components/region-filter-bar/region-filter-bar.component";
 import { CountriesContext } from "../../contexts/countries.context";
+import BackToTopButton from "../../components/back-to-top-button/back-to-top-button.component";
 
 const Home = () => {
   const [filteredCountries, setFilteredCountries] = useState([]);
@@ -47,6 +48,7 @@ const Home = () => {
         <RegionFilterBar onChange={onRegionFilterChangeHandler} />
       </SearchAndFilterContainer>
       <Countries countries={filteredCountries} />
+      <BackToTopButton />
     </LayoutWrapper>
   );
 };

@@ -3,7 +3,7 @@ import { rem } from "polished";
 import colors from "../../styles/colors";
 import Select from "react-select";
 
-const { primary, secondary, shadow, option } = colors;
+const { primary, secondary, accent, shadow, option } = colors;
 
 export const SelectRegion = styled(Select)`
   .select__control {
@@ -32,9 +32,12 @@ export const SelectRegion = styled(Select)`
     cursor: pointer;
   }
 
-  .select__option--is-selected,
   .select__option--is-focused {
     background-color: ${option.bg};
+  }
+
+  .select__option--is-selected {
+    background-color: ${accent.main};
   }
 
   .select__value-container {
