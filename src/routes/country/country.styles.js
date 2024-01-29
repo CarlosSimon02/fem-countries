@@ -3,16 +3,15 @@ import { rem } from "polished";
 import LayoutWrapper from "../../styles/common/layout-wrapper";
 
 export const Wrapper = styled(LayoutWrapper)`
-  padding-block: ${rem("80px")};
+  padding-block: clamp(2.5rem, 9.412vw + 0.294rem, 5rem);
 `;
 
 export const FlexContainer = styled.div`
-  margin-top: ${rem("80px")};
+  margin-top: clamp(4rem, 3.765vw + 3.118rem, 5rem);
   display: flex;
   flex-wrap: wrap;
   gap: ${rem("44px")};
   justify-content: space-between;
-  align-items: center;
 
   img {
     height: clamp(14.313rem, 16.15vw + 10.527rem, 25.063rem);
@@ -34,8 +33,8 @@ export const DetailsContainer = styled.div`
     gap: clamp(2rem, 8.941vw + -0.096rem, 4.375rem);
     justify-content: space-between;
 
-    &>* {
-      flex: 1 1 ${rem("200px")};  
+    & > * {
+      flex: 1 1 ${rem("200px")};
     }
   }
 
