@@ -14,7 +14,8 @@ export const FlexContainer = styled.div`
   justify-content: space-between;
 
   img {
-    height: clamp(14.313rem, 16.15vw + 10.527rem, 25.063rem);
+    width: clamp(20rem, 22.535vw + 14.718rem, 35rem);
+    height: 100%;
   }
 `;
 

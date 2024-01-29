@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { CountriesContext } from "../../contexts/countries.context";
 import { useParams } from "react-router-dom";
 import { Wrapper, FlexContainer, DetailsContainer } from "./country.styles";
+import BorderCountryButton from "./border-country-button/border-country-button.component";
+import BackButton from "./back-button/back-button.component";
 
 const Country = () => {
   const { id } = useParams();
@@ -55,12 +57,11 @@ const Country = () => {
     tld: topLevelDomain,
     currencies,
     languages,
-    borders,
   } = country;
 
   return (
     <Wrapper>
-      <button>Back</button>
+      <BackButton/>
       <FlexContainer>
         <img src={image} alt={imageAlt} />
         <DetailsContainer>
@@ -107,11 +108,16 @@ const Country = () => {
           </div>
           <p className="borders">
             <span className="label">Border Countries: </span>
-            {bordersData.length > 0 ? (
-              bordersData.map(({ cca3, name }) => {
-                return <button key={cca3}>{name}</button>;
-              })
-            ) : "No Borders"}
+            {bordersData.length > 0
+              ? bordersData.map((borderCountry) => {
+                  return (
+                    <BorderCountryButton
+                      key={borderCountry.cca3}
+                      borderCountry={borderCountry}
+                    />
+                  );
+                })
+              : "No Borders"}
           </p>
         </DetailsContainer>
       </FlexContainer>
