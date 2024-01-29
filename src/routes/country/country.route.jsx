@@ -5,6 +5,7 @@ import { Wrapper, FlexContainer, DetailsContainer } from "./country.styles";
 const Country = () => {
   const { id } = useParams();
   const [country, setCountry] = useState(null);
+  const [bordersData, setBordersData] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -18,11 +19,16 @@ const Country = () => {
       });
   }, [id]);
 
+  useEffect(() => {
+    if (country) {
+      const { borders } = country;
+      setBordersData();
+    }
+  }, [country]);
+
   if (!country) {
     return <div>Loading</div>;
   }
-
-  console.log(country);
 
   const {
     flags: { svg: image, alt: imageAlt },
@@ -79,7 +85,9 @@ const Country = () => {
               </p>
               <p>
                 <span className="label">Languages: </span>
-                {Object.keys(languages).map((key) => languages[key]).join(", ")}
+                {Object.keys(languages)
+                  .map((key) => languages[key])
+                  .join(", ")}
               </p>
             </div>
           </div>

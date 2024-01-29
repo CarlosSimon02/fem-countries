@@ -40,6 +40,8 @@ export const DetailsContainer = styled.div`
 
   p {
     line-height: ${rem("32px")};
+    padding-left: 1.5em;
+    text-indent: -1.5em;
   }
 
   .label {
