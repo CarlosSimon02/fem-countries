@@ -10,7 +10,7 @@ export const FlexContainer = styled.div`
   margin-top: clamp(4rem, 3.765vw + 3.118rem, 5rem);
   display: flex;
   flex-wrap: wrap;
-  gap: ${rem("44px")};
+  gap: clamp(2.75rem, 2.441vw + 2.178rem, 4.375rem);
   justify-content: space-between;
 
   img {
@@ -20,6 +20,7 @@ export const FlexContainer = styled.div`
 
 export const DetailsContainer = styled.div`
   font-size: clamp(0.875rem, 0.471vw + 0.765rem, 1rem);
+  flex: 1 1 ${rem("500px")};
 
   .title {
     font-weight: 800;
@@ -31,11 +32,6 @@ export const DetailsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: clamp(2rem, 8.941vw + -0.096rem, 4.375rem);
-    justify-content: space-between;
-
-    & > * {
-      flex: 1 1 ${rem("200px")};
-    }
   }
 
   p {
@@ -46,5 +42,23 @@ export const DetailsContainer = styled.div`
 
   .label {
     font-weight: 600;
+  }
+
+  .borders {
+    margin-top: clamp(2.125rem, 3.192vw + 1.377rem, 4.25rem);
+
+    & > * {
+      margin-right: ${rem("10px")};
+      margin-bottom: ${rem("16px")};
+    }
+
+    button {
+      padding-inline: ${rem("30px")};
+    }
+
+    .label {
+      font-size: clamp(1rem, 0.471vw + 0.89rem, 1.125rem);
+      font-weight: 600;
+    }
   }
 `;

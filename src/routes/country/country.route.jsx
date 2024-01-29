@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { CountriesContext } from "../../contexts/countries.context";
 import { useParams } from "react-router-dom";
 import { Wrapper, FlexContainer, DetailsContainer } from "./country.styles";
 
@@ -6,6 +7,7 @@ const Country = () => {
   const { id } = useParams();
   const [country, setCountry] = useState(null);
   const [bordersData, setBordersData] = useState([]);
+  const { countries } = useContext(CountriesContext);
 
   useEffect(() => {
     fetch(
@@ -22,9 +24,21 @@ const Country = () => {
   useEffect(() => {
     if (country) {
       const { borders } = country;
-      setBordersData();
+      setBordersData(
+        countries
+          .filter(({ cca3 }) => {
+            return borders.includes(cca3);
+          })
+          .map(({ name: { common: name }, cca3 }) => {
+            return { name, cca3 };
+          })
+      );
     }
-  }, [country]);
+  }, [country, countries]);
+
+  useEffect(() => {
+    console.log(bordersData);
+  }, [bordersData]);
 
   if (!country) {
     return <div>Loading</div>;
@@ -91,7 +105,14 @@ const Country = () => {
               </p>
             </div>
           </div>
-          <p>{borders && borders.join(", ")}</p>
+          <p className="borders">
+            <span className="label">Border Countries: </span>
+            {bordersData.length > 0 ? (
+              bordersData.map(({ cca3, name }) => {
+                return <button key={cca3}>{name}</button>;
+              })
+            ) : "No Borders"}
+          </p>
         </DetailsContainer>
       </FlexContainer>
     </Wrapper>
