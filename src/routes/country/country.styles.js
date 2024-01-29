@@ -10,7 +10,8 @@ export const FlexContainer = styled.div`
   margin-top: ${rem("80px")};
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(2.75rem, 9.39vw + 0.549rem, 9rem);
+  gap: ${rem("44px")};
+  justify-content: space-between;
   align-items: center;
 
   img {
@@ -19,6 +20,8 @@ export const FlexContainer = styled.div`
 `;
 
 export const DetailsContainer = styled.div`
+  font-size: clamp(0.875rem, 0.471vw + 0.765rem, 1rem);
+
   .title {
     font-weight: 800;
     font-size: clamp(1.375rem, 2.353vw + 0.824rem, 2rem);
@@ -28,6 +31,19 @@ export const DetailsContainer = styled.div`
   .columns {
     display: flex;
     flex-wrap: wrap;
-    gap: ${rem("117px")};
+    gap: clamp(2rem, 8.941vw + -0.096rem, 4.375rem);
+    justify-content: space-between;
+
+    &>* {
+      flex: 1 1 ${rem("200px")};  
+    }
+  }
+
+  p {
+    line-height: ${rem("32px")};
+  }
+
+  .label {
+    font-weight: 600;
   }
 `;

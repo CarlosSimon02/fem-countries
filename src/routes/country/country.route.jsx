@@ -47,18 +47,40 @@ const Country = () => {
           <h1 className="title">{name}</h1>
           <div className="columns">
             <div>
-              <p>{area}</p>
-              <p>{population}</p>
-              <p>{region}</p>
-              <p>{subregion}</p>
-              <p>{capital.join(", ")}</p>
+              <p>
+                <span className="label">Area: </span>
+                {area.toLocaleString()}km<sup>2</sup>
+              </p>
+              <p>
+                <span className="label">Population: </span>
+                {population.toLocaleString()}
+              </p>
+              <p>
+                <span className="label">Region: </span>
+                {region}
+              </p>
+              <p>
+                <span className="label">Sub Region: </span>
+                {subregion}
+              </p>
+              <p>
+                <span className="label">Capital: </span>
+                {capital.join(", ")}
+              </p>
             </div>
             <div>
-              <p>{topLevelDomain}</p>
               <p>
+                <span className="label">Top Level Domain: </span>
+                {topLevelDomain}
+              </p>
+              <p>
+                <span className="label">Currencies: </span>
                 {Object.keys(currencies).map((key) => currencies[key].name)}
               </p>
-              <p>{Object.keys(languages).map((key) => languages[key])}</p>
+              <p>
+                <span className="label">Languages: </span>
+                {Object.keys(languages).map((key) => languages[key]).join(", ")}
+              </p>
             </div>
           </div>
           <p>{borders && borders.join(", ")}</p>
