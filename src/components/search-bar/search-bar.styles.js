@@ -31,6 +31,7 @@ export const SearchInput = styled.input`
   width: 100%;
   height: 100%;
   border: none;
+  outline: none;
   border-radius: ${rem("5px")};
   background-color: ${primary.main};
   box-shadow: ${shadow.input};

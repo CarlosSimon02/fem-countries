@@ -13,6 +13,7 @@ const CountryCard = ({ country }) => {
 
   const navigate = useNavigate();
   const onNavigateHandler = () => {;
+    console.log(cca3);
     navigate(cca3.toLowerCase());
   };
 
