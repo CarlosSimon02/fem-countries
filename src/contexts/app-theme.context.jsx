@@ -19,11 +19,11 @@ export const AppThemeProvider = ({ children }) => {
     switch (theme) {
       case AppTheme.light:
         document.body.classList.remove(AppTheme.dark);
-        document.body.classlist.add(AppTheme.light);
+        document.body.classList.add(AppTheme.light);
         break;
       case AppTheme.dark:
         document.body.classList.remove(AppTheme.light);
-        document.body.classlist.add(AppTheme.dark);
+        document.body.classList.add(AppTheme.dark);
         break;
       default:
         break;

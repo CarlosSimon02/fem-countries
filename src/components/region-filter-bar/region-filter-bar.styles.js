@@ -18,6 +18,7 @@ export const SelectRegion = styled(Select)`
     padding-left: ${rem("24px")};
     font-size: clamp(0.75rem, 0.471vw + 0.64rem, 0.875rem);
     cursor: pointer;
+    transition: none;
   }
 
   .select__menu {
