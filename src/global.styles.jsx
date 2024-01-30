@@ -9,8 +9,6 @@ const { primary, secondary } = colors;
 export const GlobalStyles = createGlobalStyle`
   ${resets}
 
-
-
   body {
     background-color: ${primary.sub};
     color: ${secondary.main};
