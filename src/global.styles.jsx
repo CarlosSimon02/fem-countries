@@ -20,7 +20,7 @@ export const GlobalStyles = createGlobalStyle`
     --shadow-input: 0 0 ${rem("9px")} ${rem("2px")} hsl(0,0%,0%,2.94%);
     --shadow-borderCountryButton: 0 0 ${rem("4px")} ${rem("1px")} hsl(0,0%,0%,10.49%);
     --shadow-backButton: 0 0 ${rem("7px")} 0 hsl(0,0%,0%,10.49%);
-    --option-bg: hsl(0, 0%, 95%); 
+    --option-bg: rgb(37, 51, 62); 
   }
 
   .light {

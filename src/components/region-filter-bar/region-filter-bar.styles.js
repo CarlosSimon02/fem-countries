@@ -26,6 +26,7 @@ export const SelectRegion = styled(Select)`
     border-radius: ${rem("5px")};
     box-shadow: ${shadow.input};
     padding-block: ${rem("8px")};
+    background-color: ${primary.main};
   }
 
   .select__option {
@@ -41,6 +42,10 @@ export const SelectRegion = styled(Select)`
     background-color: ${accent.main};
   }
 
+  .select__single-value {
+    color: ${secondary.main};
+  }
+  
   .select__value-container {
     padding-left: 0;
   }

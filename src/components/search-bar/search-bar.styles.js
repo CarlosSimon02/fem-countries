@@ -38,6 +38,7 @@ export const SearchInput = styled.input`
   padding: ${rem("14px")};
   padding-left: ${rem("74px")};
   font-size: clamp(0.75rem, 0.471vw + 0.64rem, 0.875rem);
+  color: inherit;
 
   &::placeholder {
     color: ${secondary.placeholderText};
